@@ -1,3 +1,6 @@
+use lambdaworks_math::field::fields::fft_friendly::stark_252_prime_field::Stark252PrimeField;
+use stark_platinum_prover::proof::stark::StarkProof;
+
 use crate::Felt252;
 use super::table::{TableCommitmentConfigStoneCompatible, TableDecommitmentStoneCompatible, TableCommitmentWitnessStoneCompatible};
 
@@ -6,41 +9,41 @@ pub struct TracesConfigStoneCompatible {
     pub original: TableCommitmentConfigStoneCompatible,
     pub interaction: TableCommitmentConfigStoneCompatible,
 }
-// impl IntoTracesConfig of Into<TracesConfigStoneCompatible, TracesConfig> {
-//     fn into(self: TracesConfigStoneCompatible) -> TracesConfig {
-//         TracesConfig { original: self.original.into(), interaction: self.interaction.into() }
-//     }
-// }
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesConfigStoneCompatible {
+    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+        todo!()
+    }
+}
 
 #[derive(Debug)]
 pub struct TracesDecommitmentStoneCompatible {
     pub original: TableDecommitmentStoneCompatible,
     pub interaction: TableDecommitmentStoneCompatible,
 }
-// impl IntoTracesDecommitment of Into<TracesDecommitmentStoneCompatible, TracesDecommitment> {
-//     fn into(self: TracesDecommitmentStoneCompatible) -> TracesDecommitment {
-//         TracesDecommitment { original: self.original.into(), interaction: self.interaction.into() }
-//     }
-// }
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesDecommitmentStoneCompatible {
+    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+        todo!()
+    }
+}
 
 #[derive(Debug)]
 pub struct TracesUnsentCommitmentStoneCompatible {
     pub original: Felt252,
     pub interaction: Felt252,
 }
-// impl IntoTracesUnsentCommitment of Into<TracesUnsentCommitmentStoneCompatible, TracesUnsentCommitment> {
-//     fn into(self: TracesUnsentCommitmentStoneCompatible) -> TracesUnsentCommitment {
-//         TracesUnsentCommitment { original: self.original, interaction: self.interaction }
-//     }
-// }
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesUnsentCommitmentStoneCompatible {
+    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+        todo!()
+    }
+}
 
 #[derive(Debug)]
 pub struct TracesWitnessStoneCompatible {
     pub original: TableCommitmentWitnessStoneCompatible,
     pub interaction: TableCommitmentWitnessStoneCompatible,
 }
-// impl IntoTracesWitness of Into<TracesWitnessStoneCompatible, TracesWitness> {
-//     fn into(self: TracesWitnessStoneCompatible) -> TracesWitness {
-//         TracesWitness { original: self.original.into(), interaction: self.interaction.into() }
-//     }
-// }
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesWitnessStoneCompatible {
+    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+        todo!()
+    }
+}
