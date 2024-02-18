@@ -8,7 +8,9 @@ pub struct ProofOfWorkConfigStoneCompatible {
     // Proof of work difficulty (number of bits required to be 0).
     pub n_bits: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for ProofOfWorkConfigStoneCompatible {
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+    for ProofOfWorkConfigStoneCompatible
+{
     fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
         todo!()
     }
@@ -18,7 +20,9 @@ impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for ProofOfWorkCo
 pub struct ProofOfWorkUnsentCommitmentStoneCompatible {
     pub nonce: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for ProofOfWorkUnsentCommitmentStoneCompatible {
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+    for ProofOfWorkUnsentCommitmentStoneCompatible
+{
     fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
         todo!()
     }

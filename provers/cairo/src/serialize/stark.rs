@@ -4,7 +4,9 @@ use stark_platinum_prover::proof::stark::StarkProof;
 use crate::Felt252;
 
 use super::{
-    fri::{FriConfigStoneCompatible, FriUnsentCommitmentStoneCompatible, FriWitnessStoneCompatible},
+    fri::{
+        FriConfigStoneCompatible, FriUnsentCommitmentStoneCompatible, FriWitnessStoneCompatible,
+    },
     pow::{ProofOfWorkConfigStoneCompatible, ProofOfWorkUnsentCommitmentStoneCompatible},
     table::{
         TableCommitmentConfigStoneCompatible, TableCommitmentWitnessStoneCompatible,
@@ -81,7 +83,9 @@ pub struct StarkUnsentCommitmentStoneCompatible {
     pub fri: FriUnsentCommitmentStoneCompatible,
     pub proof_of_work: ProofOfWorkUnsentCommitmentStoneCompatible,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for StarkUnsentCommitmentStoneCompatible {
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+    for StarkUnsentCommitmentStoneCompatible
+{
     fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
         todo!()
     }

@@ -28,7 +28,9 @@ pub struct FriUnsentCommitmentStoneCompatible {
     pub inner_layers: Vec<Felt252>,
     pub last_layer_coefficients: Vec<Felt252>,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for FriUnsentCommitmentStoneCompatible {
+impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+    for FriUnsentCommitmentStoneCompatible
+{
     fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
         todo!()
     }

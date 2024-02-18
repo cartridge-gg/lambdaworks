@@ -10,8 +10,8 @@ pub mod errors;
 pub mod execution_trace;
 pub mod register_states;
 pub mod runner;
-pub mod transition_constraints;
 pub mod serialize;
+pub mod transition_constraints;
 
 #[cfg(test)]
 pub mod tests;
