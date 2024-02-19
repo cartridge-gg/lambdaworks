@@ -3,6 +3,8 @@ use stark_platinum_prover::proof::stark::StarkProof;
 
 use crate::Felt252;
 
+use super::SerializeError;
+
 #[derive(Debug)]
 pub struct FriConfigStoneCompatible {
     // Log2 of the size of the input layer to FRI.
@@ -17,8 +19,12 @@ pub struct FriConfigStoneCompatible {
     pub fri_step_sizes: Vec<Felt252>,
     pub log_last_layer_degree_bound: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for FriConfigStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for FriConfigStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -28,10 +34,14 @@ pub struct FriUnsentCommitmentStoneCompatible {
     pub inner_layers: Vec<Felt252>,
     pub last_layer_coefficients: Vec<Felt252>,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for FriUnsentCommitmentStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -40,8 +50,12 @@ impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
 pub struct FriWitnessStoneCompatible {
     pub layers: Vec<Felt252>,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for FriWitnessStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for FriWitnessStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }

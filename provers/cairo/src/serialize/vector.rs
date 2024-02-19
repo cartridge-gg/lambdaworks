@@ -3,15 +3,21 @@ use stark_platinum_prover::proof::stark::StarkProof;
 
 use crate::Felt252;
 
+use super::SerializeError;
+
 #[derive(Debug)]
 pub struct VectorCommitmentConfigStoneCompatible {
     pub height: Felt252,
     pub n_verifier_friendly_commitment_layers: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for VectorCommitmentConfigStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -21,10 +27,14 @@ pub struct VectorCommitmentWitnessStoneCompatible {
     pub n_authentications: Felt252,
     pub authentications: Vec<Felt252>,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for VectorCommitmentWitnessStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }

@@ -16,6 +16,7 @@ use super::{
         TracesConfigStoneCompatible, TracesDecommitmentStoneCompatible,
         TracesUnsentCommitmentStoneCompatible, TracesWitnessStoneCompatible,
     },
+    SerializeError,
 };
 
 #[derive(Debug)]
@@ -25,8 +26,12 @@ pub struct StarkProofStoneCompatible {
     pub unsent_commitment: StarkUnsentCommitmentStoneCompatible,
     pub witness: StarkWitnessStoneCompatible,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for StarkProofStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for StarkProofStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -47,8 +52,12 @@ pub struct StarkConfigStoneCompatible {
     // Number of layers that use a verifier friendly hash in each commitment.
     pub n_verifier_friendly_commitment_layers: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for StarkConfigStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for StarkConfigStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -69,8 +78,12 @@ pub struct PublicInputStoneCompatible {
     pub n_continuous_pages: Felt252,
     pub continuous_page_headers: Vec<Felt252>,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for PublicInputStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for PublicInputStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -83,10 +96,14 @@ pub struct StarkUnsentCommitmentStoneCompatible {
     pub fri: FriUnsentCommitmentStoneCompatible,
     pub proof_of_work: ProofOfWorkUnsentCommitmentStoneCompatible,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for StarkUnsentCommitmentStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -99,8 +116,12 @@ pub struct StarkWitnessStoneCompatible {
     pub composition_witness: TableCommitmentWitnessStoneCompatible,
     pub fri_witness: FriWitnessStoneCompatible,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for StarkWitnessStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for StarkWitnessStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }

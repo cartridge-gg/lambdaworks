@@ -1,9 +1,12 @@
 use lambdaworks_math::field::fields::fft_friendly::stark_252_prime_field::Stark252PrimeField;
 use stark_platinum_prover::proof::stark::StarkProof;
 
-use super::table::{
-    TableCommitmentConfigStoneCompatible, TableCommitmentWitnessStoneCompatible,
-    TableDecommitmentStoneCompatible,
+use super::{
+    table::{
+        TableCommitmentConfigStoneCompatible, TableCommitmentWitnessStoneCompatible,
+        TableDecommitmentStoneCompatible,
+    },
+    SerializeError,
 };
 use crate::Felt252;
 
@@ -12,8 +15,12 @@ pub struct TracesConfigStoneCompatible {
     pub original: TableCommitmentConfigStoneCompatible,
     pub interaction: TableCommitmentConfigStoneCompatible,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesConfigStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesConfigStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -23,10 +30,14 @@ pub struct TracesDecommitmentStoneCompatible {
     pub original: TableDecommitmentStoneCompatible,
     pub interaction: TableDecommitmentStoneCompatible,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for TracesDecommitmentStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -36,10 +47,14 @@ pub struct TracesUnsentCommitmentStoneCompatible {
     pub original: Felt252,
     pub interaction: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for TracesUnsentCommitmentStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -49,8 +64,12 @@ pub struct TracesWitnessStoneCompatible {
     pub original: TableCommitmentWitnessStoneCompatible,
     pub interaction: TableCommitmentWitnessStoneCompatible,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesWitnessStoneCompatible {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>> for TracesWitnessStoneCompatible {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }

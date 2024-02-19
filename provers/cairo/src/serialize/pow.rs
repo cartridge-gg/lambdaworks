@@ -3,15 +3,21 @@ use stark_platinum_prover::proof::stark::StarkProof;
 
 use crate::Felt252;
 
+use super::SerializeError;
+
 #[derive(Debug)]
 pub struct ProofOfWorkConfigStoneCompatible {
     // Proof of work difficulty (number of bits required to be 0).
     pub n_bits: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for ProofOfWorkConfigStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
@@ -20,10 +26,14 @@ impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
 pub struct ProofOfWorkUnsentCommitmentStoneCompatible {
     pub nonce: Felt252,
 }
-impl From<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
+impl TryFrom<&StarkProof<Stark252PrimeField, Stark252PrimeField>>
     for ProofOfWorkUnsentCommitmentStoneCompatible
 {
-    fn from(value: &StarkProof<Stark252PrimeField, Stark252PrimeField>) -> Self {
+    type Error = SerializeError;
+
+    fn try_from(
+        value: &StarkProof<Stark252PrimeField, Stark252PrimeField>,
+    ) -> Result<Self, Self::Error> {
         todo!()
     }
 }
